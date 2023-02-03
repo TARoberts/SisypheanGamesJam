@@ -17,6 +17,31 @@ public class FollowMouse : MonoBehaviour
         target.x = target3d.x;
         target.y = target3d.y;
 
+
+        float maxX = 2.3f;
+        float maxY = 4.4f;
+
+        if (target.x > maxX)
+        {
+            target.x = maxX;
+        }
+
+        else if (target.x <  -maxX)
+        {
+            target.x = -maxX;
+        }
+
+        if (target.y > maxY)
+        {
+            target.y = maxY;
+        }
+
+        else if (target.y < -maxY)
+        {
+            target.y = -maxY;
+        }
+
+        
         float step = speed * Time.deltaTime;
 
         transform.position = Vector2.MoveTowards(transform.position, target, step);
