@@ -6,6 +6,8 @@ public class ParallaxMove : MonoBehaviour
 {
     private List<GameObject> _parallaxObjects;
     [SerializeField] private float _speed;
+    private float _acceleration = 0.00025f;
+    private float _timer = 1f;
     private bool falling;
 
     private void Start()
@@ -18,6 +20,14 @@ public class ParallaxMove : MonoBehaviour
     {
         if (falling)
         {
+            _timer -= Time.deltaTime;
+
+            if(_timer < 0)
+            {
+                _timer = 1f;
+                _speed += _acceleration;
+            }
+
             int i = 0;
             foreach (GameObject go in _parallaxObjects)
             {

@@ -5,7 +5,8 @@ using UnityEngine;
 public class HighScores : MonoBehaviour
 {
     public string bestTime;
-    public float threshold = 10000000000000f;
+    public string currentTime;
+    public float threshold = 1000000f;
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -19,10 +20,18 @@ public class HighScores : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
 
-        player = GameObject.FindGameObjectWithTag("Score");
+        
     }
 
     // Update is called once per frame
+
+    private void Update()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Score");
+        }
+    }
     public void EndGame()
     {
         if (player != null)
@@ -32,6 +41,11 @@ public class HighScores : MonoBehaviour
             {
                 threshold = tracker.totalTime;
                 bestTime = tracker.displayTime;
+                currentTime = tracker.displayTime;
+            }
+            else
+            {
+                currentTime = tracker.displayTime;
             }
             
         }

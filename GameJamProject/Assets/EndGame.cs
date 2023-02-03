@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    HighScores scores;
+
+    private void Start()
     {
+        scores = GameObject.FindGameObjectWithTag("Manager").GetComponent<HighScores>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            scores.EndGame();
+            StartCoroutine(GameOver());
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator GameOver()
     {
-        
+        yield return new WaitForSeconds(3.0f);
+
+        SceneManager.LoadSceneAsync("End Scene"); 
     }
 }

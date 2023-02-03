@@ -1430,7 +1430,7 @@ GameObject:
   - component: {fileID: 1964007126}
   m_Layer: 0
   m_Name: ScoreManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,6 +1447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48ff081b1f0ee44f8e6167df1893b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bestTime: 
+  currentTime: 
+  threshold: 1000000
+  player: {fileID: 0}
 --- !u!4 &1964007127
 Transform:
   m_ObjectHideFlags: 0
