@@ -17,13 +17,22 @@ public class Obs_block_script : MonoBehaviour
             float _dist = Vector2.Distance(transform.position, player_char.transform.position);
 
 
-            if (_dist > 3)
+            if (_dist > 2)
             {
                 player_char.GetComponent<FollowMouse>()._obsticle_hit = false;
                 player_char.transform.parent = null;
                 player_char = null;
             }
 
+        }
+
+        if(transform.position.y > Screen.height)
+        {
+            Destroy(transform);
+        }
+        else
+        {
+            transform.position = new Vector2(transform.position.x , transform.position.y + (1.4f*Time.deltaTime));
         }
     }
 
