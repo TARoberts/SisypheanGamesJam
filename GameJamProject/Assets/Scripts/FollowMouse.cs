@@ -14,9 +14,9 @@ public class FollowMouse : MonoBehaviour
     [Header("Sway Settings")]
     [SerializeField] float swaySpeed = 2f;
     [SerializeField] float swayDistance = 0.2f;
+
     [HideInInspector]
     public bool _obsticle_hit = false;
-
 
     private void Start()
     {
@@ -62,11 +62,6 @@ public class FollowMouse : MonoBehaviour
             target.y = -maxY;
         }
 
-        if(target.y < -0.1 && _obsticle_hit)
-        {
-            target.y = transform.position.y;
-        }
-
 
         float step = speed * Time.deltaTime;
 
@@ -78,6 +73,12 @@ public class FollowMouse : MonoBehaviour
 
         target.y = newY;
         target.x = newX;
+
+        if (target.y < -0.1 && _obsticle_hit)
+        {
+            target.y = transform.position.y;
+        }
+
         transform.position = Vector2.MoveTowards(transform.position, target, step);
 
         // Screen boundaries stop sprite going off screen
