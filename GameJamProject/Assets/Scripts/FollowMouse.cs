@@ -11,6 +11,10 @@ public class FollowMouse : MonoBehaviour
     private float _objectWidth;
     private float _objectHeight;
 
+    [Header("Sway Settings")]
+    [SerializeField] float swaySpeed = 2f;
+    [SerializeField] float swayDistance = 0.2f;
+
 
 
     private void Start()
@@ -19,6 +23,7 @@ public class FollowMouse : MonoBehaviour
         _screenBounds = _camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _camera.transform.position.z));
         _objectWidth = transform.GetComponent<SpriteRenderer>().bounds.size.x / 2;
         _objectHeight = transform.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+ 
     }
 
     // Update is called once per frame
@@ -33,7 +38,7 @@ public class FollowMouse : MonoBehaviour
         target.y = target3d.y;
 
 
-        float maxX = 2.3f;
+/*        float maxX = 2.3f;
         float maxY = 4.4f;
 
         if (target.x > maxX)
@@ -54,13 +59,20 @@ public class FollowMouse : MonoBehaviour
         else if (target.y < -maxY)
         {
             target.y = -maxY;
-        }
+        }*/
 
         
         float step = speed * Time.deltaTime;
 
         transform.position = Vector2.MoveTowards(transform.position, target, step);
 
+        //Handle Swaying
+        float newY = Mathf.Sin(Time.time * swaySpeed) * swayDistance + target3d.y;
+        float newX = Mathf.Sin(Time.time * swaySpeed) * swayDistance + target3d.x; 
+        
+        transform.position = new Vector3(newX, newY, transform.position.z);
+
+        // Screen boundaries stop sprite going off screen
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, _screenBounds.x * -1 + _objectWidth, _screenBounds.x - _objectWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, _screenBounds.y * -1 + _objectHeight, _screenBounds.y - _objectHeight);
