@@ -54,7 +54,7 @@ public class BirdManager : MonoBehaviour
             realBirdTimer += Time.deltaTime;
             if (realBirdTimer > realBirdSpawnTime)
             {
-                realBirdGO = Instantiate(realBird, new Vector3(realBird.transform.position.x, realBird.transform.position.y + Random.Range(-2, 2), realBird.transform.position.z), realBird.transform.rotation);
+                realBirdGO = Instantiate(realBird, new Vector3(realBird.transform.position.x, realBird.transform.position.y + Random.Range(-3, 3), realBird.transform.position.z), realBird.transform.rotation);
                 realBirdSpawned = false;
                 fakeBirdSpawned = false;
                 realBirdTimer = 0f;

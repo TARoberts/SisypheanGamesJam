@@ -27,6 +27,7 @@ public class BirdAttack : MonoBehaviour
         {
             collision.transform.parent = transform;
             collision.GetComponent<FollowMouse>().enabled = false;
+            collision.GetComponent<LockMovement>().enabled = false;
         }
     }
 }
