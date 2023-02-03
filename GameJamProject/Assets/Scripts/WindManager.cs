@@ -32,18 +32,24 @@ public class WindManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*leftSideWind.emissionRate = -windStrength;
+        rightSideWind.emissionRate = windStrength;*/
         if (gustTimer > gustLength)
         {
             Debug.Log("Wind blow");
             if (!gustSet)
             {
-                windStrength = Random.Range(-5f, 5f);
+                windStrength = Random.Range(-3.5f, 3.5f);
                 gustSet = true;
             }
             else
             {
                 player.transform.position = new Vector3(player.transform.position.x - windStrength * Time.deltaTime, player.transform.position.y, player.transform.position.z);
                 windBlowingTimer += Time.deltaTime;
+                if (!Cursor.visible)
+                {
+                    windBlowingTimer = windBlowingLength;
+                }
                 if (windBlowingTimer > windBlowingLength)
                 {
                     windBlowingLength = Random.Range(windBlowingMin, windBlowingMax);
@@ -83,6 +89,5 @@ public class WindManager : MonoBehaviour
             leftSideWind.Stop();
             rightSideWind.Stop();
         }
-
     }
 }
