@@ -42,7 +42,7 @@ public class WindManager : MonoBehaviour
             }
             else
             {
-                player.transform.position = new Vector3(player.transform.position.x + windStrength * Time.deltaTime, player.transform.position.y, player.transform.position.z);
+                player.transform.position = new Vector3(player.transform.position.x - windStrength * Time.deltaTime, player.transform.position.y, player.transform.position.z);
                 windBlowingTimer += Time.deltaTime;
                 if (windBlowingTimer > windBlowingLength)
                 {
