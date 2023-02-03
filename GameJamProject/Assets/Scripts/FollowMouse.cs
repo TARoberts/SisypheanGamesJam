@@ -36,47 +36,25 @@ public class FollowMouse : MonoBehaviour
 
         target.x = target3d.x;
         target.y = target3d.y;
-
-
-/*        float maxX = 2.3f;
-        float maxY = 4.4f;
-
-        if (target.x > maxX)
-        {
-            target.x = maxX;
-        }
-
-        else if (target.x <  -maxX)
-        {
-            target.x = -maxX;
-        }
-
-        if (target.y > maxY)
-        {
-            target.y = maxY;
-        }
-
-        else if (target.y < -maxY)
-        {
-            target.y = -maxY;
-        }*/
-
         
         float step = speed * Time.deltaTime;
 
-        transform.position = Vector2.MoveTowards(transform.position, target, step);
+        
 
         //Handle Swaying
-        float newY = Mathf.Sin(Time.time * swaySpeed) * swayDistance + target3d.y;
-        float newX = Mathf.Sin(Time.time * swaySpeed) * swayDistance + target3d.x; 
-        
-        transform.position = new Vector3(newX, newY, transform.position.z);
+        float newY = Mathf.Sin(Time.time * swaySpeed) * swayDistance + target.y;
+        float newX = Mathf.Sin(Time.time * swaySpeed) * swayDistance + target.x;
+
+        target.y = newY;
+        target.x = newX;
+        transform.position = Vector2.MoveTowards(transform.position, target, step);
 
         // Screen boundaries stop sprite going off screen
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, _screenBounds.x * -1 + _objectWidth, _screenBounds.x - _objectWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, _screenBounds.y * -1 + _objectHeight, _screenBounds.y - _objectHeight);
-        transform.position = viewPos;
+
+        transform.position = Vector2.MoveTowards(transform.position, viewPos, step);
 
 
     }

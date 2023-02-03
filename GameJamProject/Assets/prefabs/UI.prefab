@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3721239177225322022}
   - component: {fileID: 6934799374445412381}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,9 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:
-
-'
+  m_text: 'Timer: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2aebcb7cdeab3d4183952a6da862efe, type: 2}
   m_sharedMaterial: {fileID: 7062239272611736728, guid: e2aebcb7cdeab3d4183952a6da862efe, type: 2}

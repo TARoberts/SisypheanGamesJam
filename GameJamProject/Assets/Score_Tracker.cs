@@ -7,7 +7,10 @@ using TMPro;
 public class Score_Tracker : MonoBehaviour
 {
     private float _timer = 1f;
-    private float _realTimer = 0f;
+    private float _realTimerSeconds = 0f;
+    private float _realTimer10s = 0f;
+    private float _realTimerMinutes = 0f;
+    private string displayTime;
 
     [SerializeField] private TextMeshProUGUI text;
     // Start is called before the first frame update
@@ -23,8 +26,33 @@ public class Score_Tracker : MonoBehaviour
 
         if (_timer <= 0)
         {
-            _realTimer += 1;
-            text.text = _realTimer.ToString();
+            displayTime = null;
+            if (_realTimerSeconds < 9)
+            {
+                _realTimerSeconds += 1;
+            }
+            else if (_realTimerSeconds == 9)
+            {
+                _realTimerSeconds = 0;
+
+                if (_realTimer10s < 5)
+                {
+                    _realTimer10s++;
+                }
+                
+                else if (_realTimer10s == 5)
+                {
+                    _realTimer10s = 0;
+                    _realTimerMinutes++;
+                }
+            }
+
+            displayTime += _realTimerMinutes.ToString();
+            displayTime += ":";
+            displayTime += _realTimer10s.ToString();
+            displayTime += _realTimerSeconds.ToString();
+
+            text.text = displayTime;
             _timer = 1f;         
 
         }
