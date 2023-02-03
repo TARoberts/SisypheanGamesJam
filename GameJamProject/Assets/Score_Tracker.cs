@@ -10,7 +10,8 @@ public class Score_Tracker : MonoBehaviour
     private float _realTimerSeconds = 0f;
     private float _realTimer10s = 0f;
     private float _realTimerMinutes = 0f;
-    private string displayTime;
+    public string displayTime;
+    public float totalTime;
 
     [SerializeField] private TextMeshProUGUI text;
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class Score_Tracker : MonoBehaviour
 
         if (_timer <= 0)
         {
+            totalTime++;
             displayTime = null;
             if (_realTimerSeconds < 9)
             {
