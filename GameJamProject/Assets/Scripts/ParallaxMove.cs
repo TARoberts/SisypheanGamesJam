@@ -24,7 +24,7 @@ public class ParallaxMove : MonoBehaviour
                 Debug.Log((go.transform.localScale.x - 1) * (Random.Range(0, 2) * 2 - 1));
                 go.transform.position += new Vector3((go.transform.localScale.x - 1) * ((i % 2) * 2 - 1) * _speed * Time.deltaTime * 0.1f, _speed * Time.deltaTime * go.transform.position.z, 0);
                 i++;
-                if (go.transform.position.y > 90)
+                if (go.transform.position.y > 75)
                 {
                     falling = false;
                 }
