@@ -21,11 +21,12 @@ public class BirdAttack : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.transform.tag == "Player")
+        if (collision.transform.tag == "Player")
         {
-            Debug.Log("Dead");
+            collision.transform.parent = transform;
+            collision.GetComponent<FollowMouse>().enabled = false;
         }
     }
 }
