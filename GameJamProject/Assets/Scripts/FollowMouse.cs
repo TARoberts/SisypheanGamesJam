@@ -11,7 +11,8 @@ public class FollowMouse : MonoBehaviour
     private float _objectWidth;
     private float _objectHeight;
 
-
+    [HideInInspector]
+    public bool _obsticle_hit = false;
 
     private void Start()
     {
@@ -46,7 +47,7 @@ public class FollowMouse : MonoBehaviour
             target.x = -maxX;
         }
 
-        if (target.y > maxY)
+        if (target.y > maxY && !_obsticle_hit)
         {
             target.y = maxY;
         }
@@ -56,7 +57,12 @@ public class FollowMouse : MonoBehaviour
             target.y = -maxY;
         }
 
-        
+        if(target.y < -0.1 && _obsticle_hit)
+        {
+            target.y = transform.position.y;
+        }
+
+
         float step = speed * Time.deltaTime;
 
         transform.position = Vector2.MoveTowards(transform.position, target, step);
