@@ -5,21 +5,30 @@ using UnityEngine;
 public class ParallaxMove : MonoBehaviour
 {
     private List<GameObject> _parallaxObjects;
-    private GameObject cam; 
-    [SerializeField] private float _speed; 
+    [SerializeField] private float _speed;
+    private bool falling;
+
     private void Start()
     {
+        falling = true;
         _parallaxObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Parallax"));
-        cam = Camera.main.gameObject; 
     }
 
     private void Update()
     {
-        foreach (GameObject go in _parallaxObjects)
+        if (falling)
         {
-            go.transform.position += new Vector3(0,_speed * Time.deltaTime * go.transform.position.z, 0);
+            int i = 0;
+            foreach (GameObject go in _parallaxObjects)
+            {
+                Debug.Log((go.transform.localScale.x - 1) * (Random.Range(0, 2) * 2 - 1));
+                go.transform.position += new Vector3((go.transform.localScale.x - 1) * ((i % 2) * 2 - 1) * _speed * Time.deltaTime * 0.1f, _speed * Time.deltaTime * go.transform.position.z, 0);
+                i++;
+                if (go.transform.position.y > 90)
+                {
+                    falling = false;
+                }
+            }
         }
-
-        cam.transform.position += new Vector3(0, _speed * Time.deltaTime * 5, 0); 
     }
 }
