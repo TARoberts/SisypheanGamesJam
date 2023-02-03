@@ -9,6 +9,8 @@ public class Spawn_Clouds : MonoBehaviour
     [SerializeField] private GameObject[] clouds;
     private float _timer;
 
+    private Vector3 _randomSpawnPos;
+
     private void Start()
     {
         _timer = startTimer;
@@ -27,7 +29,21 @@ public class Spawn_Clouds : MonoBehaviour
             int cloudid = Random.Range(0, 2);
             Debug.Log(cloudid);
             int spawnid = Random.Range(0, 2);
-            Instantiate(clouds[cloudid], spawns[spawnid].position, spawns[spawnid].rotation);
+            Instantiate(clouds[cloudid], GetRandomSpawnPos(spawns[0], spawns[1]), spawns[spawnid].rotation);
         }
+
+        
     }
+
+    private Vector3 GetRandomSpawnPos(Transform pos1, Transform pos2)
+    {
+        Vector3 difference = pos1.position - pos2.position;
+        Vector3 new_diff = difference * Random.Range(0.0f, 1.0f);
+
+        _randomSpawnPos = pos1.position - new_diff;
+
+        return _randomSpawnPos;
+    }
+
+    
 }
