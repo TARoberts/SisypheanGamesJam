@@ -22,8 +22,8 @@ public class WindManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        windBlowingLength = Random.RandomRange(windBlowingMin, windBlowingMax);
-        gustLength = Random.RandomRange(gustMin, gustMax);
+        windBlowingLength = Random.Range(windBlowingMin, windBlowingMax);
+        gustLength = Random.Range(gustMin, gustMax);
 
         leftSideWind.Stop();
         rightSideWind.Stop();
@@ -37,7 +37,7 @@ public class WindManager : MonoBehaviour
             Debug.Log("Wind blow");
             if (!gustSet)
             {
-                windStrength = Random.RandomRange(-5f, 5f);
+                windStrength = Random.Range(-5f, 5f);
                 gustSet = true;
             }
             else
@@ -46,8 +46,8 @@ public class WindManager : MonoBehaviour
                 windBlowingTimer += Time.deltaTime;
                 if (windBlowingTimer > windBlowingLength)
                 {
-                    windBlowingLength = Random.RandomRange(windBlowingMin, windBlowingMax);
-                    gustLength = Random.RandomRange(gustMin, gustMax);
+                    windBlowingLength = Random.Range(windBlowingMin, windBlowingMax);
+                    gustLength = Random.Range(gustMin, gustMax);
                     gustSet = false;
                     gustTimer = 0f;
                     windBlowingTimer = 0f;
@@ -65,11 +65,17 @@ public class WindManager : MonoBehaviour
         {
             if (windStrength >= 0)
             {
-                leftSideWind.Play();
+                if (!leftSideWind.isPlaying)
+                {
+                    leftSideWind.Play();
+                }
             }
             else if (windStrength < 0)
             {
-                rightSideWind.Play();
+                if (!rightSideWind.isPlaying)
+                {
+                    rightSideWind.Play();
+                }
             }    
         }
         else
