@@ -24,8 +24,8 @@ public class BirdManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fakeBirdSpawnTime = Random.Range(fakeBirdMin, fakeBirdMax);
-        realBirdSpawnTime = Random.Range(realBirdMin, realBirdMax);
+        fakeBirdSpawnTime = Random.RandomRange(fakeBirdMin, fakeBirdMax);
+        realBirdSpawnTime = Random.RandomRange(realBirdMin, realBirdMax);
     }
 
     // Update is called once per frame
@@ -54,13 +54,13 @@ public class BirdManager : MonoBehaviour
             realBirdTimer += Time.deltaTime;
             if (realBirdTimer > realBirdSpawnTime)
             {
-                realBirdGO = Instantiate(realBird, new Vector3(realBird.transform.position.x, realBird.transform.position.y + Random.Range(-2, 2), realBird.transform.position.z), realBird.transform.rotation);
+                realBirdGO = Instantiate(realBird, new Vector3(realBird.transform.position.x, realBird.transform.position.y + Random.RandomRange(-2, 2), realBird.transform.position.z), realBird.transform.rotation);
                 realBirdSpawned = false;
                 fakeBirdSpawned = false;
                 realBirdTimer = 0f;
                 realBirdGO = null;
-                fakeBirdSpawnTime = Random.Range(fakeBirdMin, fakeBirdMax);
-                realBirdSpawnTime = Random.Range(realBirdMin, realBirdMax);
+                fakeBirdSpawnTime = Random.RandomRange(fakeBirdMin, fakeBirdMax);
+                realBirdSpawnTime = Random.RandomRange(realBirdMin, realBirdMax);
             }
         }
     }

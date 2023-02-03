@@ -13,7 +13,7 @@ public class WindManager : MonoBehaviour
     public float windBlowingMin = 2f;
     public float windBlowingMax = 6f;
     private float windBlowingLength = 0f;
-    private bool gustSet = false;
+    private bool gustSet;
 
     public ParticleSystem leftSideWind;
     public ParticleSystem rightSideWind;
