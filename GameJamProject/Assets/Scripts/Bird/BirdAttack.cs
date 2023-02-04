@@ -21,6 +21,7 @@ public class BirdAttack : MonoBehaviour
 
         if (transform.position.x < -15)
         {
+            transform.DetachChildren();
             Destroy(gameObject);
         }
 
@@ -37,8 +38,8 @@ public class BirdAttack : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             collision.transform.parent = transform;
-            collision.GetComponent<FollowMouse>().enabled = false;
-            collision.GetComponent<LockMovement>().enabled = false;
+            //collision.GetComponent<FollowMouse>().enabled = false;
+            //collision.GetComponent<LockMovement>().enabled = false;
         }
     }
 }
