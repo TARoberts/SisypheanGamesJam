@@ -4555,7 +4555,7 @@ GameObject:
   - component: {fileID: 9222013460805351368}
   - component: {fileID: 9222013460805351415}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: ParallaxController
   m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4573,7 +4573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f8a7d9080cfbd409c523efab8252d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.01
+  _speed: 1
 --- !u!1 &9222013460853713734
 GameObject:
   m_ObjectHideFlags: 0
