@@ -964,8 +964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98aa5d1700bbdb42ac8c7a7a90eff3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fakeBird: {fileID: 1071266026035860920, guid: 93f5c5cf927b31a4dab4fe01672460bf, type: 3}
-  realBird: {fileID: 7203131163184922480, guid: 9de19e0f6fe960548b31acca4eddf387, type: 3}
+  fakeBird: {fileID: 2063931313775885484, guid: dd5431ad9bd92cb4eb13c4589da8aa40, type: 3}
+  realBird: {fileID: 812897787354317205, guid: efff541e615d3154e96eb09293a075a9, type: 3}
   fakeBirdMin: 5
   fakeBirdMax: 30
   realBirdMin: 2
@@ -4573,7 +4573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f8a7d9080cfbd409c523efab8252d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 0.01
 --- !u!1 &9222013460853713734
 GameObject:
   m_ObjectHideFlags: 0
