@@ -44,7 +44,7 @@ public class WindManager : MonoBehaviour
             Debug.Log("Wind blow");
             if (!gustSet)
             {
-                windStrength = Random.Range(-3.5f, 3.5f);
+                windStrength = Random.Range(-3f, 3f);
                 gustSet = true;
             }
             else
