@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParallaxMove : MonoBehaviour
 {
     private List<GameObject> _parallaxObjects;
+    private List<Vector3> _pObjsStartPos;
     [SerializeField] private float _speed;
     private float _acceleration = 0.00025f;
     private float _timer = 1f;
@@ -14,6 +15,11 @@ public class ParallaxMove : MonoBehaviour
     {
         falling = true;
         _parallaxObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Parallax"));
+        _pObjsStartPos = new List<Vector3>();
+        foreach (GameObject go in _parallaxObjects)
+        {
+            _pObjsStartPos.Add(go.transform.position);
+        }
     }
 
     private void Update()
@@ -22,7 +28,7 @@ public class ParallaxMove : MonoBehaviour
         {
             _timer -= Time.deltaTime;
 
-            if(_timer < 0)
+            if (_timer < 0)
             {
                 _timer = 1f;
                 _speed += _acceleration;
@@ -36,9 +42,18 @@ public class ParallaxMove : MonoBehaviour
                 i++;
                 if (go.transform.position.y > 75)
                 {
-                    falling = false;
+                    ResetCam(); 
                 }
             }
+        }
+    }
+
+    public void ResetCam()
+    {
+
+        for (int i = 0; i < _parallaxObjects.Count; i++)
+        {
+            _parallaxObjects[i].transform.position = _pObjsStartPos[i];
         }
     }
 }
