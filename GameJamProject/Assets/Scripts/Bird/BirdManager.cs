@@ -21,11 +21,13 @@ public class BirdManager : MonoBehaviour
     private float realBirdTimer = 0f;
     private float realBirdSpawnTime = 0f;
     private GameObject realBirdGO;
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         fakeBirdSpawnTime = Random.Range(fakeBirdMin, fakeBirdMax);
         realBirdSpawnTime = Random.Range(realBirdMin, realBirdMax);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -55,6 +57,7 @@ public class BirdManager : MonoBehaviour
             if (realBirdTimer > realBirdSpawnTime)
             {
                 realBirdGO = Instantiate(realBird, new Vector3(realBird.transform.position.x, realBird.transform.position.y + Random.Range(-3, 3), realBird.transform.position.z), realBird.transform.rotation);
+                player.GetComponent<FindObstacles>().UpdateTarget(realBirdGO);
                 realBirdSpawned = false;
                 fakeBirdSpawned = false;
                 realBirdTimer = 0f;
