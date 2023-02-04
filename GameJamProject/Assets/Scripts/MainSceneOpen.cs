@@ -13,12 +13,15 @@ public class MainSceneOpen : MonoBehaviour
     [SerializeField] Transform dandStartPos;
     [SerializeField] Transform dandReleasePos;
     [SerializeField] float DandFloatSpeed;
+    [SerializeField] float nightSpeed;
+    private float timer; 
+
 
     private float _startTime;
     private float _journeyLength;
-
+    private bool night;
     private bool _floatDone = false;
-
+   
     [SerializeField] GameObject topScreenCollider;
 
 
@@ -31,7 +34,10 @@ public class MainSceneOpen : MonoBehaviour
 
         _startTime = Time.time;
         _journeyLength = Vector3.Distance(dandStartPos.position, dandReleasePos.position);
-
+        if (GameObject.FindGameObjectWithTag("Night")) 
+        {
+            night = true;
+        }
     }
 
     // Update is called once per frame
@@ -51,6 +57,13 @@ public class MainSceneOpen : MonoBehaviour
                 //Debug.Log("Mouse Lock State: " + _followMouse.GetLockState());
                 topScreenCollider.SetActive(true);
                 _floatDone = true;
+            }
+
+            if (night)
+            {
+                Debug.Log(Mathf.Lerp(0, 200f / 255f, Time.deltaTime * nightSpeed));
+                timer += Time.deltaTime;
+                GameObject.FindGameObjectWithTag("Night").GetComponent<SpriteRenderer>().color = new Color(0, 0, 50f / 255f, Mathf.Lerp(0 ,220f/255f, timer * nightSpeed));
             }
         }
         
