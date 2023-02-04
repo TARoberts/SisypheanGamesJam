@@ -11,7 +11,7 @@ public class HighScores : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Score");
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Manager");
 
         if (objs.Length > 1)
         {
