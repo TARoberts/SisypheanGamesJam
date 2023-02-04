@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndGame : MonoBehaviour
 {
-    HighScores scores;
+    private HighScores scores;
 
     private void Start()
     {
