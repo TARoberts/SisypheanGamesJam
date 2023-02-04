@@ -43,11 +43,12 @@ public class ResetGame : MonoBehaviour
 
     IEnumerator Fade()
     {
-        /*layerSpawnable = GameObject.FindGameObjectsWithTag("Spawnable");
+        player.transform.parent = null;
+        layerSpawnable = GameObject.FindGameObjectsWithTag("Spawnable");
         for (int i = 0; i < layerSpawnable.Length; i++)
         {
             Destroy(layerSpawnable[i]);
-        }*/
+        }
         manager.GetComponent<Obsticle_spawner_script>().zoneTimer = 0f;
         fade = true;
         yield return new WaitForSeconds(2f);
