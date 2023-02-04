@@ -79,7 +79,7 @@ public class WindManager : MonoBehaviour
                 if (!leftSideWind.isPlaying)
                 {
                     leftSideWind.Play();
-                    leftWindObj.GetComponent<AudioSource>().clip = windSounds[Random.RandomRange(0, windSounds.Length)];
+                    leftWindObj.GetComponent<AudioSource>().clip = windSounds[Random.Range(0, windSounds.Length)];
                     leftWindObj.GetComponent<AudioSource>().Play();
                 }
             }
@@ -88,7 +88,7 @@ public class WindManager : MonoBehaviour
                 if (!rightSideWind.isPlaying)
                 {
                     rightSideWind.Play();
-                    rightWindObj.GetComponent<AudioSource>().clip = windSounds[Random.RandomRange(0, windSounds.Length)];
+                    rightWindObj.GetComponent<AudioSource>().clip = windSounds[Random.Range(0, windSounds.Length)];
                     rightWindObj.GetComponent<AudioSource>().Play();
                 }
             }    

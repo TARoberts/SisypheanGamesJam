@@ -9,7 +9,7 @@ public class DestroyCloud : MonoBehaviour
     void Update()
     {
         lifeTimer -= Time.deltaTime;
-        transform.position += new Vector3(0.5f*Time.deltaTime,0, 0);
+        transform.position += new Vector3(Random.Range(0.3f,1.0f)*Time.deltaTime,0, 0);
         if (lifeTimer < 0)
         {
             this.enabled = false;

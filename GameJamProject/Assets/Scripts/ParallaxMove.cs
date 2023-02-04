@@ -13,7 +13,7 @@ public class ParallaxMove : MonoBehaviour
 
     private void Start()
     {
-        falling = true;
+        falling = false;
         _parallaxObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("Parallax"));
         _pObjsStartPos = new List<Vector3>();
         foreach (GameObject go in _parallaxObjects)
@@ -55,5 +55,10 @@ public class ParallaxMove : MonoBehaviour
         {
             _parallaxObjects[i].transform.position = _pObjsStartPos[i];
         }
+    }
+
+    public void SetFalling(bool state)
+    {
+        falling = state;
     }
 }
