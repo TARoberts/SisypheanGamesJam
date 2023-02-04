@@ -17,7 +17,12 @@ public class WindManager : MonoBehaviour
 
     public ParticleSystem leftSideWind;
     public ParticleSystem rightSideWind;
+
+    public GameObject leftWindObj;
+    public GameObject rightWindObj;
     private GameObject player;
+
+    public AudioClip[] windSounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +79,8 @@ public class WindManager : MonoBehaviour
                 if (!leftSideWind.isPlaying)
                 {
                     leftSideWind.Play();
+                    leftWindObj.GetComponent<AudioSource>().clip = windSounds[Random.RandomRange(0, windSounds.Length)];
+                    leftWindObj.GetComponent<AudioSource>().Play();
                 }
             }
             else if (windStrength < 0)
@@ -81,6 +88,8 @@ public class WindManager : MonoBehaviour
                 if (!rightSideWind.isPlaying)
                 {
                     rightSideWind.Play();
+                    rightWindObj.GetComponent<AudioSource>().clip = windSounds[Random.RandomRange(0, windSounds.Length)];
+                    rightWindObj.GetComponent<AudioSource>().Play();
                 }
             }    
         }
@@ -88,6 +97,8 @@ public class WindManager : MonoBehaviour
         {
             leftSideWind.Stop();
             rightSideWind.Stop();
+            leftWindObj.GetComponent<AudioSource>().Stop();
+            rightWindObj.GetComponent<AudioSource>().Stop();
         }
     }
 }
