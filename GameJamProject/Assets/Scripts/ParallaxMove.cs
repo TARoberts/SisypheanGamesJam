@@ -42,7 +42,7 @@ public class ParallaxMove : MonoBehaviour
                 i++;
                 if (go.transform.position.y > 75)
                 {
-                    ResetCam(); 
+                    falling = false;  
                 }
             }
         }
