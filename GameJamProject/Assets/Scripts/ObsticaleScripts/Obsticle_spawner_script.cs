@@ -19,6 +19,8 @@ public class Obsticle_spawner_script : MonoBehaviour
 
     private Camera _camera;
 
+    public float zoneTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class Obsticle_spawner_script : MonoBehaviour
     {
         if (_use_spawner)
         {
-
+            zoneTimer += Time.deltaTime;
             if (_current_timer <= 0)
             {
                 _current_timer = _spawn_time;
@@ -39,7 +41,7 @@ public class Obsticle_spawner_script : MonoBehaviour
 
                 Vector2 _spawn_location = _camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _camera.transform.position.z));
 
-                if (_time > 0 && _time < 25)
+                if (zoneTimer > 0 && zoneTimer < 25)
                 {
                     //cloud layer
 
@@ -48,7 +50,7 @@ public class Obsticle_spawner_script : MonoBehaviour
                     Instantiate(_cloud_prefabs[_spawn_index], _spawn_location, new Quaternion());
 
                 }
-                else if (_time >= 25 && _time < 50)
+                else if (zoneTimer >= 25 && zoneTimer < 50)
                 {
                     //branch layer
                     int _side = Random.Range(0, 2);
@@ -66,7 +68,7 @@ public class Obsticle_spawner_script : MonoBehaviour
                         spawned_obj.transform.localScale = new Vector3(-spawned_obj.transform.localScale.x, spawned_obj.transform.localScale.y, spawned_obj.transform.localScale.z);
                     }
                 }
-                else if (_time >= 50)
+                else if (zoneTimer >= 50)
                 {
                    /* //bush layer??
                     _spawn_location = new Vector2(Random.Range(0, _spawn_location.x), -10);
