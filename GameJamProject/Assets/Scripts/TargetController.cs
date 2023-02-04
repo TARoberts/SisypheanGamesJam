@@ -9,7 +9,7 @@ public class TargetController : MonoBehaviour
     private Vector3 directionToObstacle;
     float angleToObstacle;
     private float hideDistance = 2.5f;
-    private float outOfRange = 6f;
+    private float outOfRange = 8f;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +29,10 @@ public class TargetController : MonoBehaviour
                 angleToObstacle = Mathf.Atan2(directionToObstacle.y, directionToObstacle.x) * Mathf.Rad2Deg + 270;
                 transform.rotation = Quaternion.AngleAxis(angleToObstacle, Vector3.forward);
             }
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
 
