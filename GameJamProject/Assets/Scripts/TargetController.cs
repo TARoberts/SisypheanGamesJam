@@ -14,18 +14,21 @@ public class TargetController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        directionToObstacle = setTarget.position - transform.position;
-
-        if (directionToObstacle.magnitude < hideDistance || directionToObstacle.magnitude > outOfRange)
+        if(setTarget != null)
         {
-            SetChildActive(false);
-        }
-        else
-        {
-            SetChildActive(true);
+            directionToObstacle = setTarget.position - transform.position;
 
-            angleToObstacle = Mathf.Atan2(directionToObstacle.y, directionToObstacle.x) * Mathf.Rad2Deg + 270;
-            transform.rotation = Quaternion.AngleAxis(angleToObstacle, Vector3.forward);
+            if (directionToObstacle.magnitude < hideDistance || directionToObstacle.magnitude > outOfRange)
+            {
+                SetChildActive(false);
+            }
+            else
+            {
+                SetChildActive(true);
+
+                angleToObstacle = Mathf.Atan2(directionToObstacle.y, directionToObstacle.x) * Mathf.Rad2Deg + 270;
+                transform.rotation = Quaternion.AngleAxis(angleToObstacle, Vector3.forward);
+            }
         }
     }
 
