@@ -9,7 +9,7 @@ public class Obs_block_script : MonoBehaviour
 
     private void Start()
     {
-        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Obsticle_spawner_script>();
+        manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Obsticle_spawner_script>();
     }
     // Update is called once per frame
     void Update()

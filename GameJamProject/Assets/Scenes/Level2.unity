@@ -2195,7 +2195,7 @@ GameObject:
   - component: {fileID: 1601556385}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Manager
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2280,6 +2280,7 @@ MonoBehaviour:
   - {fileID: 2844453371968308232, guid: 83df3f302a80c9d418a170d3f54da06f, type: 3}
   _use_spawner: 1
   _current_timer: 0
+  zoneTimer: 0
 --- !u!114 &1601556383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2312,6 +2313,7 @@ MonoBehaviour:
   player: {fileID: 1256659757}
   mover: {fileID: 9222013460805351415}
   whiteOut: {fileID: 3166653047578275670}
+  manager: {fileID: 1601556382}
 --- !u!114 &1601556385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,6 +2331,7 @@ MonoBehaviour:
   dandStartPos: {fileID: 560961611}
   dandReleasePos: {fileID: 560961610}
   DandFloatSpeed: 2
+  nightSpeed: 0
   topScreenCollider: {fileID: 2102221383}
 --- !u!198 &1622820419 stripped
 ParticleSystem:

@@ -2279,7 +2279,7 @@ GameObject:
   - component: {fileID: 1601556385}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Manager
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   player: {fileID: 1256659757}
   mover: {fileID: 9222013460805351415}
   whiteOut: {fileID: 3166653047578275670}
-  manager: {fileID: 0}
+  manager: {fileID: 1601556382}
 --- !u!114 &1601556385
 MonoBehaviour:
   m_ObjectHideFlags: 0
