@@ -50,23 +50,27 @@ public class Obsticle_spawner_script : MonoBehaviour
                     Instantiate(_cloud_prefabs[_spawn_index], _spawn_location, new Quaternion());
 
                 }
-                else if (zoneTimer >= 25 && zoneTimer < 50)
+                else if (zoneTimer > 25 && zoneTimer < 50)
                 {
                     //branch layer
                     int _side = Random.Range(0, 2);
                     int _spawn_index = Random.Range(0, _brach_prefabs.Length);
 
+                    GameObject spawned_obj = Instantiate(_brach_prefabs[_spawn_index], _spawn_location, new Quaternion());
+
                     if (_side == 0)
                     {
                         //left side
-                        Instantiate(_brach_prefabs[_spawn_index], new Vector2(-_spawn_location.x/2, -10), new Quaternion());
+                        _spawn_location = new Vector2(-_spawn_location.x / 2, -10);
                     }
                     else
                     {
                         //right side (flip sprite place on screen width max
-                        GameObject spawned_obj = Instantiate(_brach_prefabs[_spawn_index], new Vector2(_spawn_location.x / 2, -5), new Quaternion());
-                        spawned_obj.transform.localScale = new Vector3(-spawned_obj.transform.localScale.x, spawned_obj.transform.localScale.y, spawned_obj.transform.localScale.z);
+                        _spawn_location = new Vector2(_spawn_location.x / 2, -10);
+                        spawned_obj.transform.localScale = new Vector2(-spawned_obj.transform.localScale.x, spawned_obj.transform.localScale.y);
                     }
+
+                    spawned_obj.transform.position = _spawn_location;
                 }
                 else if (zoneTimer >= 50)
                 {
