@@ -20,11 +20,14 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] float fadeOutDuration;
     private float _fadeOutStart = 0;
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioClip;
  
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource.clip = audioClip;
     }
 
     // Update is called once per frame
@@ -53,8 +56,10 @@ public class SceneTransition : MonoBehaviour
     public void EnableTransition()
     {
         cam = Camera.main;
-        camDefaultPos = GameObject.Find("CamPosDefault").transform;
-        camTransitionPos = GameObject.Find("CamPosTransition").transform;
+
+        PlayAudioClip();
+        WaitForSound(audioClip);
+        
 
         _startTime = Time.time;
         _journeyLength = Vector3.Distance(camDefaultPos.position, camTransitionPos.position);
@@ -68,5 +73,16 @@ public class SceneTransition : MonoBehaviour
     public void LoadScene()
     {
         SceneManager.LoadSceneAsync(sceneToLoad);
+    }
+
+    public void PlayAudioClip()
+    {
+        audioSource.Stop();
+        audioSource.Play();
+    }
+
+    IEnumerator WaitForSound(AudioClip clip)
+    {
+        yield return new WaitForSeconds(clip.length);
     }
 }

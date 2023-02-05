@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class EndScreen : MonoBehaviour
 {
     private string highScore, currentScore;
-    public TextMeshProUGUI recordText, currentText, skipText;
+    public TextMeshProUGUI recordText, currentText;
     private float _timer = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
-        skipText.enabled = false;
+        
         var scores = GameObject.FindGameObjectWithTag("Manager");
 
         if (scores != null)
@@ -30,12 +30,7 @@ public class EndScreen : MonoBehaviour
         _timer -= Time.deltaTime;
         if (_timer < 0)
         {
-            skipText.enabled = true;
-            if (Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadSceneAsync("MenuScene");
-            }
-
+            
         }
 
     }
