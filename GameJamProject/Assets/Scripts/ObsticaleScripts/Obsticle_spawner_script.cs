@@ -45,7 +45,7 @@ public class Obsticle_spawner_script : MonoBehaviour
                 {
                     //cloud layer
 
-                    _spawn_location = new Vector2(Random.Range(-_spawn_location.x/2, _spawn_location.x/2), -5);
+                    _spawn_location = new Vector2(Random.Range(-_spawn_location.x/2, _spawn_location.x/2), -10);
                     int _spawn_index = Random.Range(0, _cloud_prefabs.Length);
                     Instantiate(_cloud_prefabs[_spawn_index], _spawn_location, new Quaternion());
 

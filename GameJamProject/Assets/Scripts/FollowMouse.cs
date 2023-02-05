@@ -86,7 +86,10 @@ public class FollowMouse : MonoBehaviour
             // Screen boundaries stop sprite going off screen
             Vector3 viewPos = transform.position;
             viewPos.x = Mathf.Clamp(viewPos.x, _screenBounds.x * -1 + _objectWidth, _screenBounds.x - _objectWidth);
-            viewPos.y = Mathf.Clamp(viewPos.y, _screenBounds.y * -1 + _objectHeight, _screenBounds.y - _objectHeight);
+            if (_obsticle_hit == false)
+            {
+                viewPos.y = Mathf.Clamp(viewPos.y, _screenBounds.y * -1 + _objectHeight, _screenBounds.y - _objectHeight);
+            }
 
             transform.position = Vector2.MoveTowards(transform.position, viewPos, step);
         }
