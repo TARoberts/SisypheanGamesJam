@@ -45,7 +45,7 @@ public class ResetGame : MonoBehaviour
     {
         player.transform.parent = null;
         layerSpawnable = GameObject.FindGameObjectsWithTag("Spawnable");
-        for (int i = 0; i < layerSpawnable.Length; i++)
+        for (int i = 0; i < layerSpawnable.Length-1; i++)
         {
             Destroy(layerSpawnable[i]);
         }

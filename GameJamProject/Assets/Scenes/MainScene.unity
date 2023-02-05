@@ -1165,7 +1165,7 @@ MonoBehaviour:
   player: {fileID: 1256659757}
   mover: {fileID: 9222013460805351415}
   whiteOut: {fileID: 3166653047578275670}
-  manager: {fileID: 0}
+  manager: {fileID: 1601556378}
 --- !u!114 &1601556385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1183,7 @@ MonoBehaviour:
   dandStartPos: {fileID: 560961611}
   dandReleasePos: {fileID: 560961610}
   DandFloatSpeed: 2
+  nightSpeed: 0
   topScreenCollider: {fileID: 2102221383}
 --- !u!198 &1622820419 stripped
 ParticleSystem:
