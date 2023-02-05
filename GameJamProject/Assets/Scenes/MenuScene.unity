@@ -1102,6 +1102,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1421051831}
     - target: {fileID: 1442734480759633752, guid: 97ddc26f6d156094a9160e15d8edf5fc, type: 3}
+      propertyPath: sceneToLoad
+      value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442734480759633752, guid: 97ddc26f6d156094a9160e15d8edf5fc, type: 3}
       propertyPath: camDefaultPos
       value: 
       objectReference: {fileID: 970718185}

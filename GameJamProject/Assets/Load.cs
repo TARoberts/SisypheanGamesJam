@@ -28,6 +28,6 @@ public class Load : MonoBehaviour
     {
         _fade = true;
         yield return new WaitForSeconds (2.0f);
-        SceneManager.LoadSceneAsync("MainScene");
+        SceneManager.LoadSceneAsync("Level3");
     }
 }
