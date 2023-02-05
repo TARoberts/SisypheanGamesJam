@@ -370,7 +370,8 @@ MonoBehaviour:
   camDefaultPos: {fileID: 862062087}
   camTransitionPos: {fileID: 1462333572}
   camMoveSpeed: 5
-  sceneToLoad: MenuScene
+  scenesToLoad:
+  - MenuScene
   canvasGroup: {fileID: 1165016274}
   fadeOutDuration: 0.5
   audioSource: {fileID: 44903988}

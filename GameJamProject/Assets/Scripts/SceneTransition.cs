@@ -16,6 +16,7 @@ public class SceneTransition : MonoBehaviour
     private float _journeyLength;
 
     private List<string> sceneToLoad;
+    [SerializeField] string[] scenesToLoad;
 
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] float fadeOutDuration;
@@ -28,11 +29,6 @@ public class SceneTransition : MonoBehaviour
     void Start()
     {
         audioSource.clip = audioClip;
-        sceneToLoad = new List<string>();
-        for (int i = 1; i < 4; i++)
-        {
-            sceneToLoad.Add("Level" + i.ToString()); 
-        }
     }
 
     // Update is called once per frame
@@ -77,7 +73,7 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadSceneAsync(sceneToLoad[Random.Range(1, 3)]);   
+        SceneManager.LoadSceneAsync(scenesToLoad[Random.Range(0, scenesToLoad.Length)]);   
     }
 
     public void PlayAudioClip()

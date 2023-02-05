@@ -56,6 +56,10 @@ public class MenuIntroTransition : MonoBehaviour
             // Canvas fades in after camera stops 
             float _progress = Time.time - _fadeInStart;
             canvasGroup.alpha = Mathf.Lerp(0f, 1f, _progress / fadeInDuration);
+            if (canvasGroup.alpha == 1)
+            {
+                _fadeInUI = false;
+            }
 
         }
     }
