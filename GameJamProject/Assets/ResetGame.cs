@@ -45,11 +45,19 @@ public class ResetGame : MonoBehaviour
     {
         player.transform.parent = null;
         layerSpawnable = GameObject.FindGameObjectsWithTag("Spawnable");
-        for (int i = 0; i < layerSpawnable.Length; i++)
+        for (int i = 0; i < layerSpawnable.Length-1; i++)
         {
             Destroy(layerSpawnable[i]);
         }
-        manager.GetComponent<Obsticle_spawner_script>().zoneTimer = 0f;
+        if (manager != null)
+        {
+            var ping = manager.GetComponent<Obsticle_spawner_script>();
+            if (ping != null)
+            {
+                ping.zoneTimer = 0.0f;
+            }
+        }
+        
         fade = true;
         yield return new WaitForSeconds(2f);
         player.transform.position = spawn.transform.position;
