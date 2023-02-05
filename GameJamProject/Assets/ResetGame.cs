@@ -10,14 +10,14 @@ public class ResetGame : MonoBehaviour
     [SerializeField] private ParallaxMove mover;
     [SerializeField] private Image whiteOut;
     private bool fade = false;
-    [SerializeField] private GameObject manager;
+    [SerializeField] private Obsticle_spawner_script manager;
     private GameObject[] layerSpawnable;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        manager = GameObject.FindGameObjectWithTag("Manager");
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Obsticle_spawner_script>();
 
     }
     void Update()
@@ -51,11 +51,9 @@ public class ResetGame : MonoBehaviour
         }
         if (manager != null)
         {
-            var ping = manager.GetComponent<Obsticle_spawner_script>();
-            if (ping != null)
-            {
-                ping.zoneTimer = 0.0f;
-            }
+
+            manager.zoneTimer = 0f;
+
         }
         
         fade = true;

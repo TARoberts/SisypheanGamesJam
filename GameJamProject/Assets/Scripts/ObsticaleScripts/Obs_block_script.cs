@@ -5,11 +5,21 @@ using UnityEngine;
 public class Obs_block_script : MonoBehaviour
 {
 
-    GameObject player_char = null;
+    private GameObject player_char = null;
+    [SerializeField] private Obsticle_spawner_script manager;
 
+    private void Start()
+    {
+        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Obsticle_spawner_script>();
+    }
     // Update is called once per frame
     void Update()
     {
+        if (manager.zoneTimer < 5f)
+        {
+            Destroy(this.gameObject);
+        }
+
         if(player_char != null)
         {
             Debug.Log("De-parent");

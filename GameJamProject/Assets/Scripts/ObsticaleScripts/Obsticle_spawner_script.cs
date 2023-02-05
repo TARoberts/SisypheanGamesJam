@@ -41,7 +41,7 @@ public class Obsticle_spawner_script : MonoBehaviour
 
                 Vector2 _spawn_location = _camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, _camera.transform.position.z));
 
-                if (zoneTimer > 0 && zoneTimer < 25)
+                if (zoneTimer > 5 && zoneTimer < 25)
                 {
                     //cloud layer
 
