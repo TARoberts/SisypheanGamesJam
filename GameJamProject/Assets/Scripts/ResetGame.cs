@@ -17,7 +17,7 @@ public class ResetGame : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
 
-        manager = GameObject.FindGameObjectWithTag("Manager").GetComponent<Obsticle_spawner_script>();
+        manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Obsticle_spawner_script>();
 
     }
     void Update()
