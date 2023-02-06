@@ -59,7 +59,14 @@ MonoBehaviour:
   rightSideWind: {fileID: 0}
   leftWindObj: {fileID: 0}
   rightWindObj: {fileID: 0}
-  windSounds: []
+  windSounds:
+  - {fileID: 8300000, guid: 02f1cf2662c3b7a43aee0f18a80557e9, type: 3}
+  - {fileID: 8300000, guid: a6ec7aa4ebd66824fb478f3e12d906e9, type: 3}
+  - {fileID: 8300000, guid: ec5fb23cfb7477848aadee287da3706d, type: 3}
+  - {fileID: 8300000, guid: 5e195cb2b0876f54cadcc3f19abe0071, type: 3}
+  - {fileID: 8300000, guid: bc419dc2c2b31e44e9cf702791bd14e0, type: 3}
+  - {fileID: 8300000, guid: 067e2243e368ad341be8b9367184e81a, type: 3}
+  - {fileID: 8300000, guid: 7236c0dcec0e645439210557afc3cba4, type: 3}
 --- !u!114 &8249591810929085997
 MonoBehaviour:
   m_ObjectHideFlags: 0

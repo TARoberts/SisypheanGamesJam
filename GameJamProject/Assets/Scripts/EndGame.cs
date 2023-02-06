@@ -16,11 +16,21 @@ public class EndGame : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             scores.EndGame();
+            StartCoroutine(Grow(collision.gameObject));
+            
             StartCoroutine(GameOver());
         }
         
     }
 
+    IEnumerator Grow(GameObject player)
+    {
+        player.GetComponent<Grow>().enabled = true;
+        player.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(5.0f);
+        player.GetComponent<SpriteRenderer>().enabled = true;
+        player.GetComponent<Grow>().enabled = false;
+    }
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(3.0f);

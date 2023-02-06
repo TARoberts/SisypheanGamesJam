@@ -4829,6 +4829,7 @@ GameObject:
   - component: {fileID: 9064471205094698740}
   - component: {fileID: 9064471205094698741}
   - component: {fileID: 8086800134802308396}
+  - component: {fileID: -1572071497017031140}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Player
@@ -4994,3 +4995,17 @@ MonoBehaviour:
   obstacles: []
   targets: []
   targetIndicator: {fileID: 1572934418613471395, guid: fed0f41a2915e434487c2cd8b8be48cb, type: 3}
+--- !u!114 &-1572071497017031140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9064471205094698731}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c5bf0b86d7fef4485720de13002e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growingDandelion: {fileID: 5235218288676662223, guid: 08e1a9215244de449a015f84c4deabd6, type: 3}
+  grown: 0
