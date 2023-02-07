@@ -332,7 +332,7 @@ MonoBehaviour:
   camDefaultPos: {fileID: 0}
   camTransitionPos: {fileID: 0}
   camMoveSpeed: 3
-  sceneToLoad: MainScene
+  scenesToLoad: []
   canvasGroup: {fileID: 1442734480377277536}
   fadeOutDuration: 1
   audioSource: {fileID: 2807438815477357501}
@@ -468,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.82248, y: 430.95947}
+  m_AnchoredPosition: {x: -180, y: 440}
   m_SizeDelta: {x: 577.645, y: 911.919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1442734481560745293
@@ -499,9 +499,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Dandelion
-
-    Game'
+  m_text: Apomixis
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e2aebcb7cdeab3d4183952a6da862efe, type: 2}
   m_sharedMaterial: {fileID: 7062239272611736728, guid: e2aebcb7cdeab3d4183952a6da862efe, type: 2}
@@ -528,7 +526,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 180.8
+  m_fontSize: 260.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -564,7 +562,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -195.46814, w: 538.8579}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
