@@ -1275,6 +1275,14 @@ PrefabInstance:
       propertyPath: scenesToLoad.Array.data[2]
       value: Level3
       objectReference: {fileID: 0}
+    - target: {fileID: 1442734481639700697, guid: 97ddc26f6d156094a9160e15d8edf5fc, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442734481639700697, guid: 97ddc26f6d156094a9160e15d8edf5fc, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1442734481639700695, guid: 97ddc26f6d156094a9160e15d8edf5fc, type: 3}
